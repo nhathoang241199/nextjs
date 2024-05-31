@@ -15,15 +15,14 @@ import Link from "next/link";
 import { Fragment } from "react";
 
 const contractLogo = [
-  { src: "/icons/telegram-icon.svg", alt: "Telegram" },
-  { src: "/icons/x-icon.svg", alt: "X" },
-  { src: "/icons/discord-icon.svg", alt: "Discord" },
-  { src: "/icons/reddit-icon.svg", alt: "Reddit" },
-  { src: "/icons/facebook-icon.svg", alt: "Facebook" },
-  { src: "/icons/instagram-icon.svg", alt: "Instagram" },
-  { src: "/icons/youtube-icon.svg", alt: "Youtube" },
+  { src: "/icons/telegram-icon.svg", alt: "Telegram", href: "" },
+  { src: "/icons/x-icon.svg", alt: "X", href: "" },
+  { src: "/icons/discord-icon.svg", alt: "Discord", href: "" },
+  { src: "/icons/reddit-icon.svg", alt: "Reddit", href: "" },
+  { src: "/icons/facebook-icon.svg", alt: "Facebook", href: "" },
+  { src: "/icons/instagram-icon.svg", alt: "Instagram", href: "" },
+  { src: "/icons/youtube-icon.svg", alt: "Youtube", href: "" },
 ];
-
 const menuItem = [
   {
     title: "features",
@@ -117,21 +116,25 @@ const Footer = () => {
           <Flex>
             {contractLogo.map((item, index) => {
               return (
-                <Image
-                  priority={true}
+                <Link
+                  style={{ cursor: "pointer" }}
                   key={index}
-                  alt={item.alt}
-                  src={item.src}
-                  width={32}
-                  height={32}
-                  style={{
-                    width: "32px",
-                    height: "32px",
-                    marginLeft: "4px",
-                    marginRight: "4px",
-                    cursor: "pointer",
-                  }}
-                />
+                  href={item.href}
+                >
+                  <Image
+                    priority={true}
+                    alt={item.alt}
+                    src={item.src}
+                    width={32}
+                    height={32}
+                    style={{
+                      width: "32px",
+                      height: "32px",
+                      marginLeft: "4px",
+                      marginRight: "4px",
+                    }}
+                  />
+                </Link>
               );
             })}
           </Flex>
